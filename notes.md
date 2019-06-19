@@ -1,10 +1,9 @@
-<pre>
+
 this is a description and notes before I write the code
 
 this is based on the original [rubiks original magic cube puzzle](https://www.rubiks.com/about)
 
-6 faces
-
+<pre>
 side with the ___ center peice will be refered to as ____ and sides will be refered to as ____
 White   W     0
 Blue    B     1
