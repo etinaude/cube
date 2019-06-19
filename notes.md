@@ -17,9 +17,9 @@ oposite centers should add to 5
 
 each side will be reperesented as a 3x3 multi-dementional array eg
 
-0 0 0     1 1 1     2 2 2     3 3 3     4 4 4     5 5 5
-0 0 0     1 1 1     2 2 2     3 3 3     4 4 4     5 5 5
-0 0 0     1 1 1     2 2 2     3 3 3     4 4 4     5 5 5
+0 0 0     1 1 1     2 2 2     3 3 3     4 4 4     5 5 5.
+0 0 0     1 1 1     2 2 2     3 3 3     4 4 4     5 5 5.
+0 0 0     1 1 1     2 2 2     3 3 3     4 4 4     5 5 5.
 
 (this is the solved state)
 
