@@ -1,7 +1,7 @@
 html, body, h1, button, textarea{
     background: #101010;
     color: #C0C0C0;
-    font-size: 15px;
+    font-size: 12px;
     font-family: 'Times New Roman', Times, serif;
 }
 button {
@@ -17,4 +17,9 @@ button {
     color: #C0C0C0;
     font-size: 15px;
     font-family: 'Times New Roman', Times, serif;
+}
+.square {
+    height: 30px;
+    width: 30px;  
+    float: left;
 }

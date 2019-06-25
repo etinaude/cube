@@ -1,9 +1,4 @@
-/*
-  r             0 1 2 
-b w g           3 4 5 
-  o             6 7 8
-  y
-*/
+var faces_displayed = 0
 //set up of the faces as objects
 class face {
     center;
@@ -31,6 +26,11 @@ class face {
         value[2] = this.colour[ptr[2]]
         return value; 
     }
+    get_single(ptr){
+        var value = 0
+        value = this.colour[ptr]
+        return value;
+    }
     set_colour(new_colour, pattern){
         this.colour[pattern[0]] = new_colour[0];
         this.colour[pattern[1]] = new_colour[1];
@@ -38,9 +38,17 @@ class face {
         return 0;
     }
     get_face(){
-        console.log(this.colour[0] + "  " + this.colour[1] + "  " + this.colour[2] + "  ")
+        var j = 0
+        var i = faces_displayed
+        faces_displayed =  faces_displayed + 9
+        /*console.log(this.colour[0] + "  " + this.colour[1] + "  " + this.colour[2] + "  ")
         console.log(this.colour[3] + "  " + this.colour[4] + "  " + this.colour[5] + "  ")
         console.log(this.colour[6] + "  " + this.colour[7] + "  " + this.colour[8] + "  ")
+        */
+        for(i; i < faces_displayed; i++ ){
+            document.getElementsByClassName("square")[i].style.backgroundColor = this.get_single(j);
+            j++
+        }
     }
     rotate_face(){
         var temp = this.colour[0]
@@ -56,12 +64,12 @@ class face {
     }
 }
 //set up of each face
-const red = new face("R");
-const orange = new face("O");
-const blue = new face("B");
-const green = new face("G");
-const yellow = new face("y");
-const white = new face("W");
+const red = new face("red");
+const orange = new face("orange");
+const blue = new face("blue");
+const green = new face("green");
+const yellow = new face("yellow");
+const white = new face("white");
 const temp = new face(99999);
 //red.set_face([0,1,2,3,4,5,6,7,8,9])
 let set1 = [0,1,2]
@@ -71,17 +79,17 @@ var set4 = [0,3,6]
 main()
 //cube display
 function get_cube(){  
-       console.log("WHITE:")
+       //console.log("WHITE:")
        white.get_face()
-       console.log("BLUE:")
+       //console.log("BLUE:")
        blue.get_face()
-       console.log("RED:")
+       //console.log("RED:")
        red.get_face()
-       console.log("ORANGE:")
+       //console.log("ORANGE:")
        orange.get_face()
-       console.log("GREEN:")
+       //console.log("GREEN:")
        green.get_face()
-       console.log("YELLOW:")
+       //console.log("YELLOW:")
        yellow.get_face()
 }
 //set up rotations
@@ -109,7 +117,6 @@ function rotate_red(){
     blue.set_colour(temp.get_colour(set1        ),      [6,3,0]);
     red.rotate_face()
 }
-//green and blue rotations need to be fixed.
 function rotate_orange(){
     temp.set_colour(white.get_colour(set3       ),      set1);
     white.set_colour(blue.get_colour(set2       ),      [8,7,6]);
@@ -118,6 +125,7 @@ function rotate_orange(){
     green.set_colour(temp.get_colour(set1       ),      [0,3,6]);
     orange.rotate_face()
 }
+//green and blue rotations need to be fixed.
 function rotate_green(){
     temp.set_colour(white.get_colour([8,5,2]     ),      set1);
     white.set_colour(orange.get_colour(set2    ),      [8,5,2]);
@@ -138,7 +146,7 @@ function main(){
     //just testing at the moment
     rotate_white()
     
-    rotate_green()
+    /*rotate_green()
        // /*
     rotate_white()
     rotate_green()
