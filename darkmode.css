@@ -1,8 +1,15 @@
-html, body, h1, button, textarea{
+html, body, button, textarea{
     background: #101010;
     color: #C0C0C0;
     font-size: 12px;
     font-family: 'Times New Roman', Times, serif;
+}
+h1{
+    background: #101010;
+    color: #C0C0C0;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
 }
 button {
     position: relative;
@@ -17,9 +24,11 @@ button {
     color: #C0C0C0;
     font-size: 15px;
     font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
 }
 .square {
     height: 30px;
     width: 30px;  
     float: left;
+    /*border-radius: 20% / 20%;*/
 }

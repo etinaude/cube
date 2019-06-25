@@ -5,7 +5,7 @@
 </head>
     <link href="darkmode.css" rel="stylesheet">
         <header></header>
-	<body id="input">
+	<body id=input>
                 <div id = "Display">
                  <div class="square"></div>
                  <div class="square"></div>
@@ -18,7 +18,7 @@
                  <div class="square"></div>
                  <div class="square"></div>
                  <div class="square"></div>
-                 <br><br> <br><br>
+                 <br><br> <br>
                  <div class="square"></div>
                  <div class="square"></div>
                  <div class="square"></div>
@@ -30,7 +30,7 @@
                  <div class="square"></div>
                  <div class="square"></div>
                  <div class="square"></div>
-                 <br><br><br><br>
+                 <br><br><br>
                  <div class="square"></div>
                  <div class="square"></div>
                  <div class="square"></div>
@@ -42,7 +42,7 @@
                  <div class="square"></div>
                  <div class="square"></div>
                  <div class="square"></div>
-                 <br><br><br><br>
+                 <br><br><br>
                  <div class="square"></div>
                  <div class="square"></div>
                  <div class="square"></div>
@@ -54,7 +54,7 @@
                  <div class="square"></div>
                  <div class="square"></div>
                  <div class="square"></div>
-                 <br><br> <br><br>
+                 <br><br> <br>
                  <div class="square"></div>
                  <div class="square"></div>
                  <div class="square"></div>
@@ -66,7 +66,7 @@
                  <div class="square"></div>
                  <div class="square"></div>
                  <div class="square"></div>
-                 <br><br><br><br>
+                 <br><br><br>
                  <div class="square"></div>
                  <div class="square"></div>
                  <div class="square"></div>
@@ -80,15 +80,20 @@
                  <div class="square"></div>
                 </div>
                 <br><br><br>
-                <button type="button" onclick="rotate_white()">White</button>
-                <button type="button" onclick="rotate_blue()">Blue</button>
-                <button type="button" onclick="rotate_red()">Red</button>
-                <br>
-                <button type="button" onclick="rotate_orange()">Orange</button>
-                <button type="button" onclick="rotate_green()">Green</button>
-                <button type="button" onclick="rotate_yellow()">Yellow</button>
-                <br>
-                <button type="button" onclick="reset()">Reset</button>
-          </body>
+                <!--
+                <h1> Rotate </h1>
+                -->
+                <div id = buttons>
+                        <button type="button" style="background-color:#f0f0f0; color: #0f0f0f;" onclick="rotate_white()">White</button>
+                        <button type="button" style="background-color:blue; color: #f0f0f0;"onclick="rotate_blue()">Blue</button>
+                        <button type="button" style="background-color:red; color: #0f0f0f;"onclick="rotate_red()">Red</button>
+                        <br>
+                        <button type="button" style="background-color:#ff9000; color: #0f0f0f;"onclick="rotate_orange()">Orange</button>
+                        <button type="button" style="background-color:green; color: #0f0f0f;"onclick="rotate_green()">Green</button>
+                        <button type="button" style="background-color:yellow; color: #0f0f0f;"onclick="rotate_yellow()">Yellow</button>
+                        <br>
+                        <button type="button" onclick="reset()">Reset</button>
+                </div>
+        </body>
 	<script src="main.js"></script>
 </html>

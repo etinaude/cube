@@ -3,13 +3,9 @@ var faces_displayed = 0
 class face {
     center;
     colour;
+    //creates each face
     constructor(num){
-        this.colour = [0,0,0,0,0,0,0,0,0]
-        this.center = num;
-        for(let i = 0; i < 9; i++){
-            this.colour[i] = num;
-        }
-        return 0;
+        this.reset_face(num)
     }
     reset_face(num){
         this.colour = [0,0,0,0,0,0,0,0,0]
@@ -17,7 +13,6 @@ class face {
         for(let i = 0; i < 9; i++){
             this.colour[i] = num;
         }
-        return 0;
     }
     get_colour(ptr){
         var value = [0,0,0]
@@ -65,28 +60,30 @@ class face {
 }
 //set up of each face
 const red = new face("red");
-const orange = new face("orange");
+const orange = new face("#ff9000");
 const blue = new face("blue");
 const green = new face("green");
 const yellow = new face("yellow");
 const white = new face("white");
 const temp = new face(99999);
+get_cube()
 //red.set_face([0,1,2,3,4,5,6,7,8,9])
 let set1 = [0,1,2]
 var set2 = [2,5,8]
 var set3 = [6,7,8]
 var set4 = [0,3,6]
+main()
+//resest to solved state
 function reset(){
     red.reset_face("red")
     white.reset_face("white")
     blue.reset_face("blue")
     yellow.reset_face("yellow")
-    orange.reset_face("orange")
+    orange.reset_face("#ff9000")
     green.reset_face("green")
     get_cube()
-
+    console.clear()
 }
-main()
 //cube display
 function get_cube(){  
        //console.log("WHITE:")
@@ -111,6 +108,7 @@ function rotate_white(){
     orange.set_colour(green.get_colour(set1     ),      set1)
     green.set_colour(temp.get_colour(set1       ),      set1)
     white.rotate_face()
+    console.log("WHITE")
     get_cube()
 }
 function rotate_yellow(){
@@ -121,6 +119,7 @@ function rotate_yellow(){
     blue.set_colour(temp.get_colour(set3        ),      set3)
     yellow.rotate_face()
     get_cube()
+    console.log("YELLOW")
 }
 function rotate_red(){
     temp.set_colour(white.get_colour(set1       ),      set1);
@@ -130,6 +129,7 @@ function rotate_red(){
     blue.set_colour(temp.get_colour(set1        ),      [6,3,0]);
     red.rotate_face()
     get_cube()
+    console.log("RED")
 }
 function rotate_orange(){
     temp.set_colour(white.get_colour(set3       ),      set1);
@@ -139,6 +139,7 @@ function rotate_orange(){
     green.set_colour(temp.get_colour(set1       ),      [0,3,6]);
     orange.rotate_face()
     get_cube()
+    console.log("ORANGE")
 }
 //green and blue rotations need to be fixed.
 function rotate_green(){
@@ -149,6 +150,7 @@ function rotate_green(){
     red.set_colour(temp.get_colour(set1        ),      set4);
     green.rotate_face()
     get_cube()
+    console.log("GREEN")
 }
 function rotate_blue(){
     temp.set_colour(white.get_colour(set4       ),      set1);
@@ -158,17 +160,8 @@ function rotate_blue(){
     orange.set_colour(temp.get_colour(set1      ),      set4);
     blue.rotate_face()
     get_cube()
+    console.log("BLUE")
 }
 function main(){
-    //just testing at the moment
-    //rotate_white()
     
-    /*rotate_green()
-       // /*
-    rotate_white()
-    rotate_green()
-
-    rotate_white()
-    rotate_green()//*/
-    get_cube()
 }
