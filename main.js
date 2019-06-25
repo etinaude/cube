@@ -16,6 +16,14 @@ class face {
         }
         return 0;
     }
+    set_face(num){
+        this.colour = [0,0,0,0,0,0,0,0,0]
+        this.center = num[4];
+        for(let i = 0; i < 9; i++){
+            this.colour[i] = num[i];
+        }
+        return 0;
+    }
     get_colour(ptr){
         var value = [0,0,0]
         value[0] = this.colour[ptr[0]]
@@ -55,6 +63,7 @@ const green = new face("G");
 const yellow = new face("y");
 const white = new face("W");
 const temp = new face(99999);
+//red.set_face([0,1,2,3,4,5,6,7,8,9])
 let set1 = [0,1,2]
 var set2 = [2,5,8]
 var set3 = [6,7,8]
@@ -100,21 +109,21 @@ function rotate_red(){
     blue.set_colour(temp.get_colour(set1        ),      [6,3,0]);
     red.rotate_face()
 }
-//orange, green and blue rotations need to be fixed.
+//green and blue rotations need to be fixed.
 function rotate_orange(){
     temp.set_colour(white.get_colour(set3       ),      set1);
-    white.set_colour(blue.get_colour([8,5,2]       ),      [8,7,6]);
+    white.set_colour(blue.get_colour(set2       ),      [8,7,6]);
     blue.set_colour(yellow.get_colour(set3      ),      set2);
     yellow.set_colour(green.get_colour([6,3,0]     ),      set3);
-    green.set_colour(temp.get_colour(set1       ),      [6,3,0]);
+    green.set_colour(temp.get_colour(set1       ),      [0,3,6]);
     orange.rotate_face()
 }
 function rotate_green(){
-    temp.set_colour(white.get_colour(set2      ),      set1);
-    white.set_colour(orange.get_colour(set2    ),      set2);
+    temp.set_colour(white.get_colour([8,5,2]     ),      set1);
+    white.set_colour(orange.get_colour(set2    ),      [8,5,2]);
     orange.set_colour(yellow.get_colour(set2   ),      set2);
-    yellow.set_colour(red.get_colour(set1      ),      set2);
-    red.set_colour(temp.get_colour(set1        ),      set2);
+    yellow.set_colour(red.get_colour(set4      ),      set2);
+    red.set_colour(temp.get_colour(set1        ),      set4);
     green.rotate_face()
 }
 function rotate_blue(){
@@ -125,17 +134,16 @@ function rotate_blue(){
     orange.set_colour(temp.get_colour(set1      ),      set4);
     blue.rotate_face()
 }
-
-
 function main(){
     //just testing at the moment
     rotate_white()
-    rotate_orange()
+    
+    rotate_green()
+       // /*
+    rotate_white()
+    rotate_green()
 
     rotate_white()
-    rotate_orange()
-
-    rotate_white()
-    rotate_orange()
+    rotate_green()//*/
     get_cube()
 }
