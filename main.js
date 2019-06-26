@@ -175,6 +175,15 @@ class face {
             return 0
         }
     }
+    score_cross(){
+        var score = 0
+        score += this.score_ML() + this.score_middle_across() + this.score_middle_down() + this.score_TM()
+        if (score == 2) {
+            return 1
+        } else {
+            return 0
+        }
+    }
     score_face(){
         var score = 0
         score = this.score_bottom() + this.score_top() + this.score_middle_across()
@@ -186,8 +195,7 @@ class face {
         }
     }
     //#endregion 
-    //#endregion
-    
+    //#endregion 
 }
 function setup(){
     //set up golbal variables and initialization of cube
@@ -285,6 +293,36 @@ function rotate_blue(){
     get_cube()
     console.log("BLUE")
 }
+function rotate_white_backwards(){
+    for(var i = 0; i<3; i++){
+        rotate_white()
+    }
+}
+function rotate_yellow_backwards(){
+    for(var i = 0; i<3; i++){
+        rotate_yellow()
+    }
+}
+function rotate_red_backwards(){
+    for(var i = 0; i<3; i++){
+        rotate_red()
+    }
+}
+function rotate_orange_backwards(){
+    for(var i = 0; i<3; i++){
+        rotate_orange()
+    }
+}
+function rotate_green_backwards(){
+    for(var i = 0; i<3; i++){
+        rotate_green()
+    }
+}
+function rotate_blue_backwards(){
+    for(var i = 0; i<3; i++){
+        rotate_blue()
+    }
+}
 //#endregion
 //#endregion
 setup()
@@ -300,7 +338,45 @@ function score_cube(){
     //score += red.score_corners()
     console.log(score)
 }
+function shuffle(){
+    for(var i =0; i<1000; i++){
+        var number = Math.round(Math.random()*13)
+        if (number == 1){
+            rotate_blue()
+        } else if(number == 2) {
+            rotate_green()
+        } else if(number == 3) {
+            rotate_orange()
+        } else if(number == 4) {
+            rotate_red()
+        } else if(number == 5) {
+            rotate_white()
+        } else if(number == 6) {
+            rotate_yellow()
+        } else if(number == 7) {
+            rotate_blue_backwards()
+        } else if(number == 8) {
+            rotate_green_backwards()
+        } else if(number == 9) {
+            rotate_red_backwards()
+        }else if(number == 10) {
+            rotate_white_backwards()
+        }else if(number == 11) {
+            rotate_orange_backwards()
+        }else if(number == 12) {
+            rotate_yellow_backwards()
+        }
+        else {
+            i--
+        } 
+    }
+}
 function main(){
-    rotate_yellow()
-    score_cube()
+   /* var count = [0,0,0,0,0,0]
+    for(var i = 0; i < 99999999; i++){
+    count[Math.round(Math.random()*5)]++
+    }
+    count[0] = count[0]*2
+    count[5] = count[5]*2
+    console.log(count) */
 }
