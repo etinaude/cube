@@ -1,4 +1,9 @@
-//#region set up and cube rotations
+/*
+working using CFOP
+im not an expert, I cant even solve a cube without a tutorial
+im currently working on the white corners
+*/
+var orr = "#ff9000"
 class face {
     //set up of the faces as objects
     colour;
@@ -187,7 +192,7 @@ class face {
     score_face(){
         var score = 0
         score = this.score_bottom() + this.score_top() + this.score_middle_across()
-        console.log("middle- "+ this.score_middle_across() + " " + score)
+        //console.log("middle- "+ this.score_middle_across() + " " + score)
         if (score == 3){
             return 1
         } else {
@@ -417,7 +422,7 @@ method
 4. rotate side
 5. repeate 3 and 4 for all white edges
 */
-/*    for(var i =0; i < 20000; i++){
+    for(var i =0; i < 20; i++){
         //console.log(i) 
         yellow_rose()
         if(yellow_rose() == "1"){
@@ -427,25 +432,32 @@ method
             //i--
         }
     }
-    /*for(var i =0; i < 50; i++){
+    for(var i =0; i < 50; i++){
         //console.log(i) 
         white_cross()
         if(white_cross() == "1"){
             console.log("BREAK")
             break}
-    }*/
+    }//*/
+    for(var i =0; i < 500; i++){
+        //console.log(i) 
+        white_corners()
+        if(white_corners() == "1"){
+            console.log("BREAK")
+            break}
+    }//*/
 }
 function yellow_rose(){
     //red
     if (red.get_single(3) == "white"){
-        if (yellow.get_single(5) == "white"){
+        if (yellow.get_single(3) == "white"){
             cubeA.rotate_yellow_forwards()
         }else{
             cubeA.rotate_green_forwards()
         }
     }
     if (red.get_single(5) == "white"){
-        if (yellow.get_single(3) == "white"){
+        if (yellow.get_single(5) == "white"){
             cubeA.rotate_yellow_forwards()
         }else{
             cubeA.rotate_blue_backwards()
@@ -467,14 +479,14 @@ function yellow_rose(){
     }
     //orange
     if (orange.get_single(5) == "white"){
-        if (yellow.get_single(5) == "white"){
+        if (yellow.get_single(3) == "white"){
             cubeA.rotate_yellow_forwards()
         }else{
             cubeA.rotate_green_backwards()
         }
     }
     if (orange.get_single(3) == "white"){
-        if (yellow.get_single(3) == "white"){
+        if (yellow.get_single(5) == "white"){
             cubeA.rotate_yellow_forwards()
         }else{
             cubeA.rotate_blue_forwards()
@@ -510,14 +522,14 @@ function yellow_rose(){
         }
     }
     if (blue.get_single(1) == "white"){
-        if (yellow.get_single(3) == "white"){
+        if (yellow.get_single(5) == "white"){
             cubeA.rotate_white_forwards()
         }else{
             cubeA.rotate_blue_backwards()
         }
     }
     if (blue.get_single(7) == "white"){
-        if (yellow.get_single(3) == "white"){
+        if (yellow.get_single(5) == "white"){
             cubeA.rotate_yellow_forwards()
         }else{
             cubeA.rotate_blue_backwards()
@@ -539,21 +551,21 @@ function yellow_rose(){
         }
     }
     if (green.get_single(1) == "white"){
-        if (yellow.get_single(5) == "white"){
+        if (yellow.get_single(3) == "white"){
             cubeA.rotate_white_forwards()
         }else{
             cubeA.rotate_green_backwards()
         }
     }
     if (green.get_single(7) == "white"){
-        if (yellow.get_single(1) == "white"){
+        if (yellow.get_single(3) == "white"){
             cubeA.rotate_yellow_forwards()
         }else{
             cubeA.rotate_green_backwards()
         }
     }
     //white
-    if (white.get_single(7) == "white"){
+    if (white.get_single(1) == "white"){
         if (yellow.get_single(1) == "white"){
             cubeA.rotate_white_forwards()
         }else{
@@ -562,7 +574,7 @@ function yellow_rose(){
         }
     }
     if (white.get_single(3) == "white"){
-        if (yellow.get_single(3) == "white"){
+        if (yellow.get_single(5) == "white"){
             cubeA.rotate_white_forwards()
         }else{
             cubeA.rotate_blue()
@@ -570,7 +582,7 @@ function yellow_rose(){
         }
     }
     if (white.get_single(5) == "white"){
-        if (yellow.get_single(5) == "white"){
+        if (yellow.get_single(3) == "white"){
             cubeA.rotate_white_forwards()
         }else{
             cubeA.rotate_green()
@@ -594,7 +606,7 @@ function yellow_rose(){
     
 }
 function white_cross(){
-    if (blue.get_single(7) == "blue" && yellow.get_single(3) == "white"){
+    if (blue.get_single(7) == "blue" && yellow.get_single(5) == "white"){
         cubeA.rotate_blue()
         cubeA.rotate_blue()
     }
@@ -602,7 +614,7 @@ function white_cross(){
         cubeA.rotate_red()
         cubeA.rotate_red()
     }
-    if (green.get_single(7) == "green" && yellow.get_single(5) == "white"){
+    if (green.get_single(7) == "green" && yellow.get_single(3) == "white"){
         cubeA.rotate_green()
         cubeA.rotate_green()
     }
@@ -616,6 +628,160 @@ function white_cross(){
     } else{
         return "0"
     }
+}
+function white_corners(){
+    var moved = false
+    //console.log("CORNERS!!!")
+    //#region best cases
+    //blue
+    if (red.get_single(8) == "white" && blue.get_single(6) == "blue"){
+        moved = true
+        cubeA.rotate_yellow_backwards()
+        cubeA.rotate_blue_backwards()
+        cubeA.rotate_yellow()
+        cubeA.rotate_blue_forwards()
+    }
+    if (orange.get_single(6) == "white" && blue.get_single(8) == "blue"){
+        moved = true
+        cubeA.rotate_yellow()
+        cubeA.rotate_blue()
+        cubeA.rotate_yellow_backwards()
+        cubeA.rotate_blue_backwards()
+    }
+    //orange
+    if (blue.get_single(8) == "white" && orange.get_single(6) == orr){
+        moved = true
+        cubeA.rotate_yellow_backwards()
+        cubeA.rotate_orange_backwards()
+        cubeA.rotate_yellow()
+        cubeA.rotate_orange_forwards()
+    }
+    if (green.get_single(6) == "white" && orange.get_single(8) == orr){
+        moved = true
+        cubeA.rotate_yellow()
+        cubeA.rotate_orange()
+        cubeA.rotate_yellow_backwards()
+        cubeA.rotate_orange_backwards()
+    }
+    //green
+    if (orange.get_single(8) == "white" && green.get_single(6) == "green"){
+        moved = true
+        cubeA.rotate_yellow_backwards()
+        cubeA.rotate_green_backwards()
+        cubeA.rotate_yellow()
+        cubeA.rotate_green_forwards()
+    }
+    if (red.get_single(6) == "white" && green.get_single(8) == "green"){
+        moved = true
+        cubeA.rotate_yellow()
+        cubeA.rotate_green()
+        cubeA.rotate_yellow_backwards()
+        cubeA.rotate_green_backwards()
+    }
+    //red
+    if (green.get_single(8) == "white" && red.get_single(6) == "red"){
+        moved = true
+        cubeA.rotate_yellow_backwards()
+        cubeA.rotate_red_backwards()
+        cubeA.rotate_yellow()
+        cubeA.rotate_red_forwards()
+    }
+    if (blue.get_single(6) == "white" && red.get_single(8) == "red"){
+        moved = true
+        cubeA.rotate_yellow()
+        cubeA.rotate_red()
+        cubeA.rotate_yellow_backwards()
+        cubeA.rotate_red_backwards()
+    }
+    //#endregion
+    //#region top layer/wrong white/yellow
+    //yellow
+    if(yellow.get_single(0) == "white"){
+        if(white.get_single(2) == "white"){
+            cubeA.rotate_yellow_forwards()
+        } else{
+            cubeA.rotate_green()
+            cubeA.rotate_yellow_backwards()
+            cubeA.rotate_green_backwards()
+        }
+    }
+    if(yellow.get_single(2) == "white"){
+        if(white.get_single(0) == "white"){
+            cubeA.rotate_yellow_forwards()
+        } else{
+            cubeA.rotate_blue_backwards()
+            cubeA.rotate_yellow()
+            cubeA.rotate_blue_forwards()
+        }
+    }
+    if(yellow.get_single(6) == "white"){
+        if(white.get_single(8) == "white"){
+            cubeA.rotate_yellow_forwards()
+        } else{
+            cubeA.rotate_green_backwards()
+            cubeA.rotate_yellow()
+            cubeA.rotate_green_forwards()
+        }
+    }
+    if(yellow.get_single(8) == "white"){
+        if(white.get_single(6) == "white"){
+            cubeA.rotate_yellow_forwards()
+        } else{
+            cubeA.rotate_blue()
+            cubeA.rotate_yellow_backwards()
+            cubeA.rotate_blue_backwards()
+        }
+    }
+    //white and top
+    if (moved == false){
+        console.log("am i right?")
+        if ((white.get_single(0) !== "white") || (red.get_single(2) !== "red" || blue.get_single(0) !== "blue")){
+            console.log("AAA")
+            cubeA.rotate_red()
+            cubeA.rotate_yellow_backwards()
+            cubeA.rotate_red_backwards()
+        }
+        if ((white.get_single(2) !== "white") || (red.get_single(0) !== "red" || green.get_single(2) !== "green")){
+            console.log("BBB")
+            cubeA.rotate_green()
+            cubeA.rotate_yellow_backwards()
+            cubeA.rotate_green_backwards()
+        }
+        if ((white.get_single(6) !== "white") || (orange.get_single(0) !== orr || blue.get_single(2) !== "blue")){
+            console.log("CCC")
+        cubeA.rotate_blue()
+        cubeA.rotate_yellow_backwards()
+        cubeA.rotate_blue_backwards()
+        }
+        if ((white.get_single(8) !== "white") || (orange.get_single(2) !== orr || green.get_single(0) !== "green")){
+            console.log("DDD")
+            cubeA.rotate_orange()
+            cubeA.rotate_yellow_backwards()
+            cubeA.rotate_orange_backwards()
+        }
+    } else {
+    cubeA.rotate_yellow_forwards()
+    }
+    //#endregion
+    /* SERIOUSLY javascript no easy way of array1 == array2? 
+    console.log(blue.get_colour([0,1,2]))
+    if (blue.get_colour([0,1,2]) == ["blue", "blue", "blue"]){
+        console.log("BLUE!!!!!!")
+    }
+    */
+    if(red.score_top() == 1 && blue.score_top() == 1 && green.score_top() == 1 && orange.score_top() == 1){
+        if(white.score_face() == 1){
+            console.log("GOOOOOOD")
+            return "1"
+        } else{
+            //console.log("NOT GOOOD")
+            return "0"
+        }
+    } else{
+        //console.log("HERERE???")
+        return "0"
+    }
+
 }
 function main(){
    
