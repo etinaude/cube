@@ -32,3 +32,20 @@ button {
     float: left;
     /*border-radius: 20% / 20%;*/
 }
+.container {
+    display: grid;
+    display: inline-grid;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+    background-color: #101010;
+    padding: 5px;
+  }
+  .grid-item {
+    background-color: #101010;
+    border: 1px solid #101010;
+    padding: 5px;
+    font-size: 26px;
+    text-align: center;
+  }

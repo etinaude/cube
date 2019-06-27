@@ -197,7 +197,8 @@ class face {
     //#endregion 
     //#endregion 
 }
-function setup(){
+class cube{
+    constructor(){
     //set up golbal variables and initialization of cube
     window.faces_displayed = 0
     window.red = new face("red");
@@ -207,10 +208,9 @@ function setup(){
     window.yellow = new face("yellow");
     window.white = new face("white");
     window.temp = new face(99999);
-    get_cube()
-    
-}
-function reset(){
+    this.get_cube() 
+    }
+    reset(){
     //resest to solved state
     red.reset_face("red")
     white.reset_face("white")
@@ -218,114 +218,182 @@ function reset(){
     yellow.reset_face("yellow")
     orange.reset_face("#ff9000")
     green.reset_face("green")
-    get_cube()
+    this.get_cube()
     console.clear()
-}
-function get_cube(){  
+    }
+    get_cube(){  
        //displays the entire
-       white.get_face()
-       blue.get_face()
        red.get_face()
-       orange.get_face()
+       blue.get_face()
+       white.get_face()
        green.get_face()
+       orange.get_face()
        yellow.get_face()
        faces_displayed = 0
-}
-//#region   rotation functions
-//set up rotations
-function rotate_white(){
-    temp.set_colour(red.get_colour([0,1,2]         ),      [0,1,2])
-    red.set_colour(blue.get_colour([0,1,2]         ),      [0,1,2])
-    blue.set_colour(orange.get_colour([0,1,2]      ),      [0,1,2])
-    orange.set_colour(green.get_colour([0,1,2]     ),      [0,1,2])
-    green.set_colour(temp.get_colour([0,1,2]       ),      [0,1,2])
-    white.rotate_face()
-    console.log("WHITE")
-    get_cube()
-}
-function rotate_yellow(){
-    temp.set_colour(red.get_colour([6,7,8]         ),      [6,7,8])
-    red.set_colour(green.get_colour([6,7,8]        ),      [6,7,8])
-    green.set_colour(orange.get_colour([6,7,8]     ),      [6,7,8])
-    orange.set_colour(blue.get_colour([6,7,8]      ),      [6,7,8])
-    blue.set_colour(temp.get_colour([6,7,8]        ),      [6,7,8])
-    yellow.rotate_face()
-    get_cube()
-    console.log("YELLOW")
-}
-function rotate_red(){
-    temp.set_colour(white.get_colour([2,1,0]    ),   [0,1,2]);
-    white.set_colour(green.get_colour([8,5,2]  ),   [2,1,0]);
-    green.set_colour(yellow.get_colour([0,1,2]  ),   [8,5,2]);
-    yellow.set_colour(blue.get_colour([0,3,6]),   [0,1,2]);
-    blue.set_colour(temp.get_colour([0,1,2]     ),   [0,3,6]);
-    red.rotate_face()
-    get_cube()
-    console.log("RED")
-}
-function rotate_orange(){
-    temp.set_colour(white.get_colour([6,7,8]  ), [0,1,2]);
-    white.set_colour(blue.get_colour([8,5,2]  ), [6,7,8]);
-    blue.set_colour(yellow.get_colour([8,7,6] ), [8,5,2]);
-    yellow.set_colour(green.get_colour([0,3,6]), [8,7,6]);
-    green.set_colour(temp.get_colour([0,1,2]     ), [0,3,6]);
-    orange.rotate_face()
-    get_cube()
-    console.log("ORANGE")
-}
-function rotate_green(){
-    temp.set_colour(white.get_colour([8,5,2]  ),[0,1,2]);
-    white.set_colour(orange.get_colour([8,5,2]),[8,5,2]);
-    orange.set_colour(yellow.get_colour([2,5,8]  ),[8,5,2]);
-    yellow.set_colour(red.get_colour([0,3,6]  ),[2,5,8]);
-    red.set_colour(temp.get_colour([0,1,2]       ),[0,3,6]);
-    green.rotate_face()
-    get_cube()
-    console.log("GREEN")
-}
-function rotate_blue(){
-    temp.set_colour(white.get_colour([0,3,6]   ),[0,1,2]);
-    white.set_colour(red.get_colour([8,5,2]    ),[0,3,6]);
-    red.set_colour(yellow.get_colour([0,3,6]   ),[8,5,2]);
-    yellow.set_colour(orange.get_colour([0,3,6]),[0,3,6]);
-    orange.set_colour(temp.get_colour([0,1,2]  ),[0,3,6]);
-    blue.rotate_face()
-    get_cube()
-    console.log("BLUE")
-}
-function rotate_white_backwards(){
-    for(var i = 0; i<3; i++){
-        rotate_white()
     }
-}
-function rotate_yellow_backwards(){
+    //#region   rotation functions
+    //set up rotations
+    //#region base rotate
+        rotate_white(){
+            temp.set_colour(red.get_colour([0,1,2]         ),      [0,1,2])
+            red.set_colour(blue.get_colour([0,1,2]         ),      [0,1,2])
+            blue.set_colour(orange.get_colour([0,1,2]      ),      [0,1,2])
+            orange.set_colour(green.get_colour([0,1,2]     ),      [0,1,2])
+            green.set_colour(temp.get_colour([0,1,2]       ),      [0,1,2])
+            white.rotate_face()
+            console.log("%cWHITE", "color: white; background-color: #404040; font-weight: bold;")
+        }
+        rotate_yellow(){
+            temp.set_colour(red.get_colour([6,7,8]         ),      [6,7,8])
+            red.set_colour(green.get_colour([6,7,8]        ),      [6,7,8])
+            green.set_colour(orange.get_colour([6,7,8]     ),      [6,7,8])
+            orange.set_colour(blue.get_colour([6,7,8]      ),      [6,7,8])
+            blue.set_colour(temp.get_colour([6,7,8]        ),      [6,7,8])
+            yellow.rotate_face()
+            console.log("%cYELLOW", "color: yellow; background-color: #a6a232; font-weight: bold;")
+        }
+        rotate_red(){
+            temp.set_colour(white.get_colour([2,1,0]),[0,1,2]      )
+            white.set_colour(green.get_colour([8,5,2]  ),   [2,1,0]);
+            green.set_colour(yellow.get_colour([0,1,2]  ),   [8,5,2]);
+            yellow.set_colour(blue.get_colour([0,3,6]),   [0,1,2]);
+            blue.set_colour(temp.get_colour([0,1,2]     ),   [0,3,6]);
+            red.rotate_face()
+            console.log("%cRED", "color: red; background-color: #ffaaaa; font-weight: bold;")
+            temp.set_colour(white.get_colour([2,1,0]    ),   [0,1,2]);
+        }
+        rotate_orange(){
+            temp.set_colour(white.get_colour([6,7,8]),[0,1,2]      )
+            white.set_colour(blue.get_colour([8,5,2]  ), [6,7,8]);
+            blue.set_colour(yellow.get_colour([8,7,6] ), [8,5,2]);
+            yellow.set_colour(green.get_colour([0,3,6]), [8,7,6]);
+            green.set_colour(temp.get_colour([0,1,2]     ), [0,3,6]);
+            orange.rotate_face()
+            console.log("%cORANGE", "color: #ff9000; background-color: #aa5000; font-weight: bold;")
+            temp.set_colour(white.get_colour([6,7,8]  ), [0,1,2]);
+        }
+        rotate_green(){
+            temp.set_colour(white.get_colour([8,5,2]),[0,1,2]      )
+            white.set_colour(orange.get_colour([8,5,2]),[8,5,2]);
+            orange.set_colour(yellow.get_colour([2,5,8]  ),[8,5,2]);
+            yellow.set_colour(red.get_colour([0,3,6]  ),[2,5,8]);
+            red.set_colour(temp.get_colour([0,1,2]       ),[0,3,6]);
+            green.rotate_face()
+            console.log("%cGREEN", "color: green; background-color: #aaffaa; font-weight: bold;")
+            temp.set_colour(white.get_colour([8,5,2]  ),[0,1,2]);
+        }
+        rotate_blue(){
+            temp.set_colour(white.get_colour([0,3,6]),[0,1,2]      )
+            white.set_colour(red.get_colour([8,5,2]    ),[0,3,6]);
+            red.set_colour(yellow.get_colour([0,3,6]   ),[8,5,2]);
+            yellow.set_colour(orange.get_colour([0,3,6]),[0,3,6]);
+            orange.set_colour(temp.get_colour([0,1,2]  ),[0,3,6]);
+            blue.rotate_face()
+            console.log("%cBLUE", "color: blue; background-color: #aaaaff; font-weight: bold;")
+            temp.set_colour(white.get_colour([0,3,6]   ),[0,1,2]);
+        }
+    //#endregion
+    //#region backwards
+        rotate_white_backwards(){
+            this.rotate_white()
+            for(var i = 0; i<3; i++){
+                this.rotate_white()
+            }
+            this.get_cube() 
+            }
+        rotate_yellow_backwards(){
+            for(var i = 0; i<3; i++){
+            this.rotate_yellow()
+            }
+            this.get_cube() 
+        }
+        rotate_red_backwards(){
+            for(var i = 0; i<3; i++){
+                this.rotate_red()
+            }
+            this.get_cube() 
+        }
+        rotate_orange_backwards(){
+            for(var i = 0; i<3; i++){
+                this.rotate_orange()
+            }
+            this.get_cube() 
+        }
+        rotate_green_backwards(){
     for(var i = 0; i<3; i++){
-        rotate_yellow()
+        this.rotate_green()
     }
-}
-function rotate_red_backwards(){
+    this.get_cube() 
+        }
+        rotate_blue_backwards(){
     for(var i = 0; i<3; i++){
-        rotate_red()
+        this.rotate_blue()
     }
-}
-function rotate_orange_backwards(){
-    for(var i = 0; i<3; i++){
-        rotate_orange()
-    }
-}
-function rotate_green_backwards(){
-    for(var i = 0; i<3; i++){
-        rotate_green()
-    }
-}
-function rotate_blue_backwards(){
-    for(var i = 0; i<3; i++){
-        rotate_blue()
-    }
-}
+    this.get_cube() 
+        }
+    //#endregion
+    //#region forwards
+        rotate_white_forwards(){
+    this.rotate_white()
+    this.get_cube() 
+        }
+        rotate_yellow_forwards(){
+    this.rotate_yellow()
+    this.get_cube() 
+        }
+        rotate_red_forwards(){
+    this.rotate_red()
+    this.get_cube() 
+        }
+        rotate_orange_forwards(){
+    this.rotate_orange()
+    this.get_cube() 
+        }
+        rotate_green_forwards(){
+    this.rotate_green()
+    this.get_cube() 
+        }
+        rotate_blue_forwards(){
+    this.rotate_blue()
+    this.get_cube() 
+        }
 //#endregion
 //#endregion
-setup()
+    shuffle(){
+        for(var i =0; i<20; i++){
+                var number = Math.round(Math.random()*13)
+                if (number == 1){
+                    this.rotate_blue_forwards()
+                } else if(number == 2) {
+                    this.rotate_green_forwards()
+                } else if(number == 3) {
+                    this.rotate_orange_forwards()
+                } else if(number == 4) {
+                    this.rotate_red_forwards()
+                } else if(number == 5) {
+                    this.rotate_white_forwards()
+                } else if(number == 6) {
+                    this.rotate_yellow()
+                } else if(number == 7) {
+                    this.rotate_blue_backwards()
+                } else if(number == 8) {
+                    this.rotate_green_backwards()
+                } else if(number == 9) {
+                    this.rotate_red_backwards()
+                }else if(number == 10) {
+                    this.rotate_white_backwards()
+                }else if(number == 11) {
+                    this.rotate_orange_backwards()
+                }else if(number == 12) {
+                    this.rotate_yellow_backwards()
+                }
+                else {
+                    i--
+                } 
+        }
+    }
+}
+var cubeA = new cube()
 main()
 function score_cube(){
     var score = 0
@@ -338,38 +406,9 @@ function score_cube(){
     //score += red.score_corners()
     console.log(score)
 }
-function shuffle(){
-    for(var i =0; i<1000; i++){
-        var number = Math.round(Math.random()*13)
-        if (number == 1){
-            rotate_blue()
-        } else if(number == 2) {
-            rotate_green()
-        } else if(number == 3) {
-            rotate_orange()
-        } else if(number == 4) {
-            rotate_red()
-        } else if(number == 5) {
-            rotate_white()
-        } else if(number == 6) {
-            rotate_yellow()
-        } else if(number == 7) {
-            rotate_blue_backwards()
-        } else if(number == 8) {
-            rotate_green_backwards()
-        } else if(number == 9) {
-            rotate_red_backwards()
-        }else if(number == 10) {
-            rotate_white_backwards()
-        }else if(number == 11) {
-            rotate_orange_backwards()
-        }else if(number == 12) {
-            rotate_yellow_backwards()
-        }
-        else {
-            i--
-        } 
-    }
+
+function solve(){
+
 }
 function main(){
    /* var count = [0,0,0,0,0,0]

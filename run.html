@@ -6,94 +6,106 @@
     <link href="darkmode.css" rel="stylesheet">
         <header></header>
 	<body id=input>
-                <div id = "Display">
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br> <br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br> <br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <br><br>
-                 <div class="square"></div>
-                 <div class="square"></div>
-                 <div class="square"></div>
+                <div class="grid-container">
+                        <div class="grid-item" id = "null"></div>
+                        <div class="grid-item" id = "White">
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <br>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <br>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                        </div>
+                        <div class="grid-item" id = "null"></div>
+                        <div class="grid-item" id = Blue>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <br>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <br>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                        </div>
+                        <div class="grid-item" id = Red >
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <br>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <br>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                        </div>
+                        <div class="grid-item"  id = orange>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <br>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <br>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                        </div>
+                        <div class="grid-item" id = "null"></div>
+                        <div class="grid-item" id= green>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <br>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <br>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                        </div>
+                        <div class="grid-item" id = "null"></div>
+                        <div class="grid-item" id=yellow>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <br>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <br>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                                <div class="square"></div>
+                        </div>
                 </div>
                 <br><br><br>
                 <!--
                 <h1> Rotate </h1>
                 -->
                 <div id = buttons>
-                        <button type="button" style="background-color:#f0f0f0; color: #0f0f0f;" onclick="rotate_white()">White</button>
-                        <button type="button" style="background-color:blue; color: #f0f0f0;"onclick="rotate_blue()">Blue</button>
-                        <button type="button" style="background-color:red; color: #0f0f0f;"onclick="rotate_red()">Red</button>
+                        <button type="button" style="background-color:#f0f0f0; color: #0f0f0f;" onclick="cubeA.rotate_white_forwards()">White</button>
+                        <button type="button" style="background-color:blue; color: #f0f0f0;"onclick="cubeA.rotate_blue_forwards()">Blue</button>
+                        <button type="button" style="background-color:red; color: #0f0f0f;"onclick="cubeA.rotate_red_forwards()">Red</button>
                         <br>
-                        <button type="button" style="background-color:#ff9000; color: #0f0f0f;"onclick="rotate_orange()">Orange</button>
-                        <button type="button" style="background-color:green; color: #0f0f0f;"onclick="rotate_green()">Green</button>
-                        <button type="button" style="background-color:yellow; color: #0f0f0f;"onclick="rotate_yellow()">Yellow</button>
+                        <button type="button" style="background-color:#ff9000; color: #0f0f0f;"onclick="cubeA.rotate_orange_forwards()">Orange</button>
+                        <button type="button" style="background-color:green; color: #0f0f0f;"onclick="cubeA.rotate_green_forwards()">Green</button>
+                        <button type="button" style="background-color:yellow; color: #0f0f0f;"onclick="cubeA.rotate_yellow_forwards()">Yellow</button>
                         <br>
-                        <button type="button" onclick="reset()">Reset</button>
-                        <button type="button" onclick="shuffle()">Shuffle</button>
+                        <button type="button" onclick="cubeA.reset()">Reset</button>
+                        <button type="button" onclick="cubeA.shuffle()">Shuffle</button>
+                        <button type="button" onclick="solve()">Solve</button>
                 </div>
         </body>
 	<script src="main.js"></script>
