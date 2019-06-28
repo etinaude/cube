@@ -460,15 +460,39 @@ method
             solve()
         }
     }
-    for(var i = 0; i < 50; i++){
+    for(var i = 0; i < 10; i++){
         console.log(i) 
         middle_layer()
         if(middle_layer() == "1"){
             console.log("BREAK")
             break
-        }
+        } 
     }//*/
-}
+    for(var i = 0; i < 50; i++){
+        console.log(i) 
+        yellow_face()
+        if(yellow_face() == "1"){
+            console.log("BREAK")
+            break
+        } 
+    }//*/
+    for(var i = 0; i < 50; i++){
+        console.log(i) 
+        last_corners()
+        if(last_corners() == "1"){
+            console.log("BREAK")
+            break
+        } 
+    }//*/
+    for(var i = 0; i < 50; i++){
+        console.log(i) 
+        last_middles()
+        if(last_middles() == "1"){
+            console.log("BREAK")
+            break
+        } 
+    }//*/
+} 
 function yellow_rose(){
     //red
     if (red.get_single(3) == "white"){
@@ -909,12 +933,15 @@ function middle_layer(){
     
     
     }
+    var jaun = false
     if((yellow.get_single(1) == "yellow" || red.get_single(7) == "yellow")&&
        (yellow.get_single(3) == "yellow" || green.get_single(7) == "yellow")&&
        (yellow.get_single(5) == "yellow" || blue.get_single(7) == "yellow")&&
-       (yellow.get_single(7) == "yellow" || orange.get_single(7) == "yellow")){
+       (yellow.get_single(7) == "yellow" || orange.get_single(7) == "yellow")&& trig == false){
         console.log(5)
-        if(green.get_single(3) !== "green" || orange.get_single(5) !== orr){
+        if((green.get_single(3) !== "green" || orange.get_single(5) !== orr) && jaun == false){
+            console.log("?????")
+            jaun = true
             cubeA.rotate_yellow()
             cubeA.rotate_orange()
             cubeA.rotate_yellow_backwards()
@@ -924,7 +951,9 @@ function middle_layer(){
             cubeA.rotate_yellow()
             cubeA.rotate_green()
         }
-        if(green.get_single(5) !== "green" || red.get_single(3) !== "red"){
+        if((green.get_single(5) !== "green" || red.get_single(3) !== "red") && jaun == false){
+            jaun = true
+            console.log("NOT HERE?")
             cubeA.rotate_yellow_backwards()
             cubeA.rotate_red_backwards()
             cubeA.rotate_yellow()
@@ -934,7 +963,8 @@ function middle_layer(){
             cubeA.rotate_yellow_backwards()
             cubeA.rotate_green_backwards()
         }
-        if(green.get_single(3) !== "blue" || red.get_single(5) !== "red"){
+        if((green.get_single(3) !== "blue" || red.get_single(5) !== "red") && jaun == false){
+            jaun = true
             cubeA.rotate_yellow()
             cubeA.rotate_red()
             cubeA.rotate_yellow_backwards()
@@ -944,7 +974,8 @@ function middle_layer(){
             cubeA.rotate_yellow()
             cubeA.rotate_blue()
         }
-        if(green.get_single(5) !== "blue" || orange.get_single(3) !== orr){
+        if((green.get_single(5) !== "blue" || orange.get_single(3) !== orr ) && jaun == false){
+            jaun = true
             cubeA.rotate_yellow_backwards()
             cubeA.rotate_orange_backwards()
             cubeA.rotate_yellow()
@@ -956,11 +987,32 @@ function middle_layer(){
         }
     }
     cubeA.rotate_yellow_forwards()
-    if(red.score_middle_across() == 1 && green.score_middle_across() == 1 && orange.score_middle_across() == 1 && blue.score_middle_across() == 1 && yellow.score_cross() == 1){
+    if(red.score_middle_across() == 1 && green.score_middle_across() == 1 && orange.score_middle_across() == 1 && blue.score_middle_across() == 1){
         return 1
     } else{
         return 0
     }
+
+}
+function yellow_face(){
+    /*
+    1. line
+    2. lightning
+    3. fish/ 2 corners/ t/ cross
+    */
+    if(yellow.score_middle_across() == 1 && yellow.score_cross() == 0){
+        
+    }
+    if (yellow.score_face() == 1){
+        return 1
+    } else{
+        return 0
+    }
+}
+function last_corners(){
+
+}
+function last_middles(){
 
 }
 function main(){

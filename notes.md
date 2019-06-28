@@ -3,8 +3,6 @@ this is a description and notes before I write the code
 
 this is based on the original [rubiks original magic cube puzzle](https://www.rubiks.com/about)
 
-[network plan](https://drive.google.com/file/d/1D1lmqFRxtz8H31tZHCw3pXZg6q_3YprN/view?usp=sharing)
-
 <pre>
 side with the ___ center peice will be refered to as ____ and sides will be refered to as ____
 White   W     0
