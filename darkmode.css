@@ -30,7 +30,11 @@ button {
     height: 30px;
     width: 30px;  
     float: left;
-    /*border-radius: 20% / 20%;*/
+    border-radius: 20% / 20%;
+    border-spacing: 10000px;
+    padding: 2px;
+    margin: 1px;
+    border-collapse: separates;
 }
 .container {
     display: grid;
@@ -38,14 +42,14 @@ button {
   }
   .grid-container {
     display: grid;
-    grid-template-columns: 115px 115px 115px;
+    grid-template-columns: 150px 150px 150px;
     background-color: #101010;
     padding: 10px;
   }
   .grid-item {
     background-color: #101010;
     border: 1px solid #101010;
-    padding: 8px;
+    padding: 10px;
     font-size: 26px;
     text-align: center;
   }
