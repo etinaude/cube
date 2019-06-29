@@ -231,7 +231,7 @@ class cube{
     white.reset_face("white")
     blue.reset_face("blue")
     yellow.reset_face("yellow")
-    orange.reset_face("#ff9000")
+    orange.reset_face(orr)
     green.reset_face("green")
     this.get_cube()
     console.clear()
@@ -460,22 +460,24 @@ method
             solve()
         }
     }
-    for(var i = 0; i < 10; i++){
-        console.log(i) 
+    for(var i = 0; i < 20; i++){
+        console.log("NNN" + i) 
         middle_layer()
         if(middle_layer() == "1"){
             console.log("BREAK")
             break
         } 
     }//*/
+    console.log("YELLOW FACE!!!")
     for(var i = 0; i < 50; i++){
-        console.log(i) 
+        //console.log(i) 
         yellow_face()
         if(yellow_face() == "1"){
             console.log("BREAK")
             break
         } 
     }//*/
+    /*
     for(var i = 0; i < 50; i++){
         console.log(i) 
         last_corners()
@@ -484,15 +486,16 @@ method
             break
         } 
     }//*/
-    for(var i = 0; i < 50; i++){
+    /*for(var i = 0; i < 50; i++){
         console.log(i) 
         last_middles()
         if(last_middles() == "1"){
             console.log("BREAK")
             break
         } 
-    }//*/
+    }*/
 } 
+//#region  subs
 function yellow_rose(){
     //red
     if (red.get_single(3) == "white"){
@@ -851,7 +854,7 @@ function middle_layer(){
             cubeA.rotate_red()
             cubeA.rotate_yellow_backwards()
             cubeA.rotate_red_backwards()
-        } else {
+        } else if (yellow.get_single(1) == "green"){
             cubeA.rotate_yellow()
             cubeA.rotate_green()
             cubeA.rotate_yellow_backwards()
@@ -874,7 +877,7 @@ function middle_layer(){
             cubeA.rotate_blue_backwards()
             cubeA.rotate_yellow()
             cubeA.rotate_blue_forwards()
-        } else {
+        } else if (yellow.get_single(5) == orr){
             cubeA.rotate_yellow_backwards()
             cubeA.rotate_orange_backwards()
             cubeA.rotate_yellow()
@@ -897,7 +900,7 @@ function middle_layer(){
             cubeA.rotate_green()
             cubeA.rotate_yellow_backwards()
             cubeA.rotate_green_backwards()
-        } else {
+        } else if (yellow.get_single(3) == orr){
             cubeA.rotate_yellow()
             cubeA.rotate_orange()
             cubeA.rotate_yellow_backwards()
@@ -920,7 +923,7 @@ function middle_layer(){
             cubeA.rotate_orange_backwards()
             cubeA.rotate_yellow()
             cubeA.rotate_orange_forwards()
-        } else {
+        } else if (yellow.get_single(7) == "green"){
             cubeA.rotate_yellow_backwards()
             cubeA.rotate_green_backwards()
             cubeA.rotate_yellow()
@@ -986,6 +989,7 @@ function middle_layer(){
             cubeA.rotate_blue_backwards()
         }
     }
+    trig = false
     cubeA.rotate_yellow_forwards()
     if(red.score_middle_across() == 1 && green.score_middle_across() == 1 && orange.score_middle_across() == 1 && blue.score_middle_across() == 1){
         return 1
@@ -994,20 +998,63 @@ function middle_layer(){
     }
 
 }
+//#endregion
 function yellow_face(){
     /*
     1. line
     2. lightning
-    3. fish/ 2 corners/ t/ cross
+    3. fish/ 2 corners/ t/ CROSS
     */
-    if(yellow.score_middle_across() == 1 && yellow.score_cross() == 0){
+    if(yellow.score_cross() == 1){  
+        console.log("cross")
+        if(yellow.score_TL() == 1 || yellow.score_TR() == 1 || yellow.score_BL() == 1|| yellow.score_BR()  ==1 ){
+            console.log("+1")
+            while (yellow.score_BL() == 0 && yellow.score_BR() == 0){
+                cubeA.rotate_yellow()
+            }
+            cubeA.rotate_blue()
+            cubeA.rotate_yellow()
+            cubeA.rotate_blue_backwards()
+            cubeA.rotate_yellow()
+            cubeA.rotate_blue()
+            cubeA.rotate_yellow()
+            cubeA.rotate_yellow()
+            cubeA.rotate_blue_backwards()
+        }
+    } else{
+        console.log("NO cross")
+        if (yellow.score_middle_down() + yellow.score_middle_across() == 1){
+            console.log("line")
+            if(yellow.score_middle_down() == 1){
+                cubeA.rotate_yellow()
+            }
+            if(yellow.score_middle_across() == 1){
+                console.log("middle line")
+                cubeA.rotate_red()
+                cubeA.rotate_green()
+                cubeA.rotate_yellow()
+                cubeA.rotate_green_backwards()
+                cubeA.rotate_yellow_backwards()
+                cubeA.rotate_red_backwards()
+            }
+        } else{
+            console.log("other")
+            cubeA.rotate_red()
+            cubeA.rotate_yellow()
+            cubeA.rotate_green()
+            cubeA.rotate_yellow_backwards()
+            cubeA.rotate_green_backwards()
+            cubeA.rotate_red_backwards()
+
+        } 
+        
         
     }
     if (yellow.score_face() == 1){
         return 1
-    } else{
-        return 0
     }
+    return 0
+
 }
 function last_corners(){
 
