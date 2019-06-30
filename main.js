@@ -236,15 +236,34 @@ class cube{
     this.get_cube()
     console.clear()
     }
+    mode  = "display"
     get_cube(){  
-       //displays the entire
-       red.get_face()
-       blue.get_face()
-       white.get_face()
-       green.get_face()
-       orange.get_face()
-       yellow.get_face()
-       faces_displayed = 0
+        if (this.mode == "debug"){
+            red.get_face()
+            blue.get_face()
+            white.get_face()
+            green.get_face()
+        } else {
+            this.rotate_red()
+            this.rotate_red()
+            red.get_face()
+            this.rotate_red()
+            this.rotate_red()
+            this.rotate_blue()
+            blue.get_face()
+            this.rotate_blue()
+            this.rotate_blue()
+            this.rotate_blue()
+            white.get_face()
+            this.rotate_green()
+            this.rotate_green()
+            this.rotate_green()
+            green.get_face()
+            this.rotate_green()
+        }
+        orange.get_face()
+        yellow.get_face()
+        faces_displayed = 0
     }
     //#region   rotation functions
     //set up rotations
@@ -375,7 +394,7 @@ class cube{
 //#endregion
 //#endregion
     shuffle(){
-        for(var i =0; i<20; i++){
+        for(var i =0; i<25; i++){
                 var number = Math.round(Math.random()*13)
                 if (number == 1){
                     this.rotate_blue_forwards()
@@ -1009,18 +1028,18 @@ function yellow_face(){
         console.log("cross")
         if(yellow.score_TL() == 1 || yellow.score_TR() == 1 || yellow.score_BL() == 1|| yellow.score_BR()  ==1 ){
             console.log("+1")
-            while (yellow.score_BL() == 0 && yellow.score_BR() == 0){
-                cubeA.rotate_yellow()
-            }
-            cubeA.rotate_blue()
-            cubeA.rotate_yellow()
-            cubeA.rotate_blue_backwards()
-            cubeA.rotate_yellow()
-            cubeA.rotate_blue()
-            cubeA.rotate_yellow()
-            cubeA.rotate_yellow()
-            cubeA.rotate_blue_backwards()
+            //while (yellow.score_BL() == 0 && yellow.score_BR() == 0){
+            //    cubeA.rotate_yellow()
+            //}
         }
+            cubeA.rotate_blue()
+            cubeA.rotate_yellow()
+            cubeA.rotate_blue_backwards()
+            cubeA.rotate_yellow()
+            cubeA.rotate_blue()
+            cubeA.rotate_yellow()
+            cubeA.rotate_yellow()
+            cubeA.rotate_blue_backwards()        
     } else{
         console.log("NO cross")
         if (yellow.score_middle_down() + yellow.score_middle_across() == 1){
@@ -1046,9 +1065,7 @@ function yellow_face(){
             cubeA.rotate_green_backwards()
             cubeA.rotate_red_backwards()
 
-        } 
-        
-        
+        }     
     }
     if (yellow.score_face() == 1){
         return 1
